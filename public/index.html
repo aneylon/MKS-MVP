@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app='studyMe'>
+  <head>
+    <meta charset="utf-8" />
+    <title>study me</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
+  <body>
+    <h1 alert>study me</h1>
+
+    <nav>
+      <ul>
+        <li><a href="#/links">links</a>
+        </li>
+        <li><a href="#/shorten">login</a>
+        </li>
+      </ul>
+    </nav>
+    <div ng-view></div>
+
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+
+    <script src="app/auth/auth.js"></script>
+    <script src="app/links/links.js"></script>
+    <script src="app/shorten/shorten.js"></script>
+    <script src="app/services/services.js"></script>
+    <script src="app/app.js"></script>
+  </body>
+</html>
