@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app='studyMe'>
+<html ng-app='studyMe' ng-controller='studyController'>
   <head>
     <meta charset="utf-8" />
     <title>study me</title>
@@ -18,7 +18,11 @@
     <select>
       <option>JLPT N3</option>
     </select>
-    <button>Go to it!</button>
+    <button ng-click="clickedIt()">Go to it!</button>
+
+    <div>
+      {{ testOne }}
+    </div>
 
     <div ng-view>different views will go here</div>
 
