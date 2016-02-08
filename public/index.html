@@ -10,21 +10,21 @@
 
     <nav>
       <ul>
-        <li><a href="#/links">links</a>
-        </li>
-        <li><a href="#/shorten">login</a>
+        <li><a href="#/login">login</a>
         </li>
       </ul>
     </nav>
-    <div ng-view></div>
 
-    <script src="lib/angular/angular.js"></script>
-    <script src="lib/angular-route/angular-route.js"></script>
+    <select>
+      <option>JLPT N3</option>
+    </select>
+    <button>Go to it!</button>
 
-    <script src="app/auth/auth.js"></script>
-    <script src="app/links/links.js"></script>
-    <script src="app/shorten/shorten.js"></script>
-    <script src="app/services/services.js"></script>
-    <script src="app/app.js"></script>
+    <div ng-view>different views will go here</div>
+
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-route/angular-route.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="js/studyMe.js"></script>
   </body>
 </html>
