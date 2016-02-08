@@ -1,13 +1,21 @@
-x basic node server
+X basic node server
   - refactor to express
-  
+
 - test deploy
-  - cloud 9
+  X cloud 9
   - heroku
 
 - front end
   - angular / backbone ?
   - ejs / jade ?
+  - bootstrap / foundation
 
 - db
   SQL / Mongo / Firebase ?
+
+- block out interface
+
+Extra Credit:
+- charts!
+- grunt
+- email daily 'card'

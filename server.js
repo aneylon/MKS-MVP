@@ -6,7 +6,7 @@ var port = process.env.PORT || 4569;
 //process.env.PORT, process.env.IP
 http.createServer(function(req,res){
   res.writeHead(200,{'Content-Type': 'text/plain'});
-  res.end('hello world\n');
+  res.end('hello mks mvp!\n');
 }).listen(port);
 
 console.log('server running on : ', port);
