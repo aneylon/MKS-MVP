@@ -1,0 +1,13 @@
+x basic node server
+  - refactor to express
+  
+- test deploy
+  - cloud 9
+  - heroku
+
+- front end
+  - angular / backbone ?
+  - ejs / jade ?
+
+- db
+  SQL / Mongo / Firebase ?
