@@ -1,5 +1,73 @@
 * {
-  border : solid red 1px;
+  /*border : solid red 1px;*/
   padding : 5px;
-  margin : 5px;
+  margin : 0px;
+}
+
+body {
+  background-color: #333;
+  width : 75%;
+  margin : auto;
+}
+
+h1 {
+  color : #eee;
+  background-color : cyan;
+  padding : 10px;
+  margin-top : 35px;
+}
+
+nav {
+  color : #333;
+  background-color : #aaa;
+}
+
+nav ul {
+  overflow: auto;
+}
+
+nav ul li{
+  display : inline-block;
+  float : right;
+}
+
+a {
+  color : #333;
+}
+
+#appBody {
+  background-color : #ddd;
+  padding : 10px;
+}
+
+#card {
+  width : 75%;
+  color : black;
+  background-color : white;
+  text-align: center;
+  margin : auto;
+  margin-top : 25px;
+  margin-bottom : 25px;
+  padding : 15px;
+}
+
+#answers {
+  display : none;
+}
+
+#nextButton {
+  color : #ddd;
+  background-color : cyan;
+  padding : 15px;
+  width : 75px;
+  height : 20px;
+  margin : auto;
+  text-align : center;
+  font-size : x-large;
+  font-weight : bold;
+  border : solid white 1px;
+}
+#nextButton:hover {
+  color : #333;
+  background-color : #9ff;
 }

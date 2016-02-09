@@ -13,3 +13,10 @@ var studyMe = angular.module('studyMe', [])
 });
 // .factory()
 // .service()
+
+var jlptN3 = [
+  ["one a", "one b", "one c"],
+  ["two a", "two b", "two c"],
+  ["three a", "three b", "three c"],
+  ["four a", "four b", "four c"]
+];

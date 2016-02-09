@@ -10,23 +10,49 @@
 
     <nav>
       <ul>
-        <li<a href="#/stats">stats</a>
-        </li>
         <li><a href="#/login">login</a>
+        </li>
+        <li><a href="#/stats">stats</a>
         </li>
       </ul>
     </nav>
 
-    <select>
-      <option>JLPT N3</option>
-    </select>
-    <button ng-click="clickedIt()">Go to it!</button>
+    <div id="appBody">
+      <label>Pick a thing! </label>
+      <select>
+        <option>JLPT N3</option>
+      </select>
+      <button ng-click="clickedIt()">Go to it!</button>
 
-    <div>
-      {{ testOne }}
+      <div id="card">
+        <div id="question">
+          question
+          {{ question }}
+        </div>
+        <div id="answers">
+          <div id="partOne">
+            answer one
+            {{ answerOne}}
+          </div>
+          <div id="partTwo">
+            answer two
+            {{ answerTwo }}
+          </div>
+        </div>
+      </div>
+
+      <div id="nextButton">
+        next
+      </div>
+      <!-- 
+      <div>
+        {{ testOne }}
+      </div>
+
+      <div ng-view>different views will go here</div>
+       -->
     </div>
-
-    <div ng-view>different views will go here</div>
+    
     <!-- 
     <script src="../node_modules/angular/angular.js"></script>
     <script src="../node_modules/angular-route/angular-route.js"></script>
