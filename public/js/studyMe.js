@@ -2,6 +2,19 @@ console.log("loggin basic");
 
 $(document).ready(function(){
   console.log('j-quezy fo sheezy');
+
+  $( "#question" ).click(function() {
+    $( "#answers" ).slideToggle( "fast", function() {
+      // Animation complete.
+    });
+  });
+
+  $("#nextButton").click(function(){
+    $("#answers").slideUp("fast", function(){
+      console.log("slide it up");
+    });
+  });
+
 });
 
 var studyMe = angular.module('studyMe', [])
