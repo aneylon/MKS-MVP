@@ -5,14 +5,14 @@
   <br>
   <form>
     <p>
-      <label>user name : </label><input style="text">
+      <label>user name : </label><input type="text" ng-model="userName">
     </p>
     <br>
     <p>
-      <label>password : </label><input style="text">
+      <label>password : </label><input type="password" ng-model="passWordOne">
     </p>
     <br>
-    <button>login</button>
+    <button ng-click="clickLogin()">login</button>
   </form>
 
   <h2> no account? </h2>

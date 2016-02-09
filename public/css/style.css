@@ -73,14 +73,17 @@ a:hover {
 
 #answers {
   display : none;
+  padding : 10px;
 }
 
 #partOne {
   border-top : dotted grey 1px;
+  padding : 10px;
 }
 
 #partTwo {
   border-top : dotted grey 1px;
+  padding : 10px;
 }
 
 #nextButton {

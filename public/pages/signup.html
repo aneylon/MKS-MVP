@@ -5,17 +5,21 @@
   <br>
   <form>
     <p>
-      <label>user name : </label><input style="text">
+      <label>user name : </label><input type="text" ng-model="userName">
     </p>
     <br>
     <p>
-      <label>email : </label><input style="text">
+      <label>email : </label><input type="email" ng-model="eMail">
     </p>
     <br>
     <p>
-      <label>password : </label><input style="text">
+      <label>password : </label><input type="password" ng-model="passWordOne">
     </p>
     <br>
-    <button>sign up</button>
+    <p>
+      <label>confirm password : </label><input type="password" ng-model="passWordTwo">
+    </p>
+    <br>
+    <button ng-click="clickSignup()">sign up</button>
   </form>
 </div>

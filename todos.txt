@@ -1,19 +1,25 @@
 X basic node server
-  - refactor to express
+  x refactor to express
 
 - test deploy
   X cloud 9
   - heroku
 
-- front end
-  - angular / backbone ?
-  - ejs / jade ?
-  - bootstrap / foundation
+x front end
+  x angular / --backbone-- 
+  x neither --ejs / jade-- 
+  x hand coded --bootstrap / foundation--
+
+- redirect after login / signup
+- get infos from forms
+- logic for cards
+
+- angular animations
 
 - db
   SQL / Mongo / Firebase ?
 
-- block out interface
+x block out interface
 
 Extra Credit:
 - charts!

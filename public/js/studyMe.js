@@ -4,6 +4,13 @@
 $(document).ready(function(){
   // console.log('j-quezy fo sheezy');
 
+  $("body").on('click', '#card', function(){
+    $('#answers').slideToggle("fast");
+  })
+  $("body").on('click', '#nextButton', function(){
+    $('#answers').slideUp('fast');
+  })
+/*
   $( "#question" ).click(function() {
     $( "#answers" ).slideToggle( "fast", function() {
       // Animation complete.
@@ -16,10 +23,10 @@ $(document).ready(function(){
       // move to next item in list
     });
   });
-
+*/
 });
 
-var studyMe = angular.module('studyMe', ['ngRoute'])
+var studyMe = angular.module('studyMe', ['ngRoute','chart.js'])
 .config(function($routeProvider){
   $routeProvider
     .when('/', {
@@ -46,23 +53,49 @@ var studyMe = angular.module('studyMe', ['ngRoute'])
 })
 
 .controller('statsController', function($scope){
+  $scope.randomScalingFactor = function(){
+    return Math.round(Math.random()*100)
+  };
   $scope.testMessage = " this is all of the stats ";
+
+  $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
+  $scope.series = ['Series A', 'Series B'];
+  // $scope.data = [
+  //   [65, 59, 80, 81, 56, 55, 40],
+  //   [28, 48, 40, 19, 86, 27, 90]
+  // ];
+  $scope.data = [
+    [$scope.randomScalingFactor(), $scope.randomScalingFactor(), $scope.randomScalingFactor(), $scope.randomScalingFactor(), $scope.randomScalingFactor(), $scope.randomScalingFactor(), $scope.randomScalingFactor()],
+    [$scope.randomScalingFactor(), $scope.randomScalingFactor(), $scope.randomScalingFactor(), $scope.randomScalingFactor(), $scope.randomScalingFactor(), $scope.randomScalingFactor(), $scope.randomScalingFactor()]
+  ];
+  $scope.onClick = function (points, evt) {
+    console.log(points, evt);
+  };
 })
 
 .controller('loginController', function($scope){
-  $scope.testMessage = " this is where you login ";
+  $scope.testMessage = " get you logged in ";
+  $scope.clickLogin = function(){
+    console.log('clicked login');
+  };
 })
 
 .controller('signupController', function($scope){
-  $scope.testMessage = " this is where you sign up ";
+  $scope.testMessage = " get you signed up ";
+  $scope.clickSignup = function(){
+    console.log('clicked signup');
+  };
 })
 
 .controller('adminController', function($scope){
-  $scope.testMessage = " this is where you add cards ";
+  $scope.testMessage = " add you some cards ";
+  $scope.clickAdd = function(){
+    console.log('clicked add');
+  };
 })
 
 .controller('studyController', function($scope){
-  $scope.testMessage = " this is the main thinger ";
+  $scope.testMessage = " select you a deck to get started ";
 
   $scope.curDeck = [];
 
@@ -77,11 +110,20 @@ var studyMe = angular.module('studyMe', ['ngRoute'])
     ["four a", "four b", "four c"]
   ];
 
-  $scope.clickedIt = function(){
+  $scope.sampleData = [
+    ["나는 한국어 읽을 수 없습니다","naneun hangug-eo ilg-eul su eobs-seubnida","I can\'t read korean."],
+    ["日本語能力試験N3を合格したがまだ日本語が良く分からないなぁ。",
+    "にほんご　のうりょく　しけん　N3　を　ごうがく　した　が　まだ　にほんご　が　よく　わからない　なぁ。",
+    "Even though I passed the level three JLPT I still don't understand Japanese very well."],
+    ["how much wood could a would chuck, chuck if a wood chuck could chuck wood?","shut up.","seriously."]
+  ];
+
+  $scope.selectDeck = function(){
     console.log('Clicked it');
   };
 
   $scope.loadSelected = function(){
+
   };
 
   $scope.shuffle = function(arr){
@@ -102,18 +144,9 @@ var studyMe = angular.module('studyMe', ['ngRoute'])
   };
 
   $scope.nextCard = function(){
-    $scope.shuffle($scope.jlptN3);
+    $scope.shuffle($scope.sampleData);
   };
 });
 
 // .factory()
 // .service()
-
-/*
-var jlptN3 = [
-  ["one a", "one b", "one c"],
-  ["two a", "two b", "two c"],
-  ["three a", "three b", "three c"],
-  ["four a", "four b", "four c"]
-];
-*/
