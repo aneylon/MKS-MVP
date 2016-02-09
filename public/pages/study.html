@@ -1,0 +1,28 @@
+<div>
+  <h1> study page </h1>
+  <p> {{ testMessage }} </p>
+  <label>Pick a thing! </label>
+  <select>
+    <option>JLPT N3</option>
+  </select>
+  <button ng-click="clickedIt()">Go to it!</button>
+  <button ng-click="shuffle(jlptN3)">Shuffle it!</button>
+
+  <div id="card">
+    <div id="question">
+      {{ curQuestion }}
+    </div>
+    <div id="answers">
+      <div id="partOne">
+        {{ answerOne}}
+      </div>
+      <div id="partTwo">
+        {{ answerTwo }}
+      </div>
+    </div>
+  </div>
+
+  <div id="nextButton" ng-click="nextCard()">
+    next
+  </div>
+</div>

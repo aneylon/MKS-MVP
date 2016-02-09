@@ -9,7 +9,7 @@ body {
   margin : auto;
 }
 
-h1 {
+#titleBar {
   color : #eee;
   background-color : deepskyblue;
   padding : 10px;
@@ -31,7 +31,7 @@ nav ul li{
   float : right;
 }
 
-a {
+nav ul li a {
   color : #333;
   text-decoration: none;
   background-color: #ddd;
@@ -43,8 +43,16 @@ a {
   height : 20px;
 }
 
-a:hover{
+nav ul li a:hover{
   background-color: #eee;
+}
+
+a {
+  color : #333;
+}
+
+a:hover {
+  color : #999;
 }
 
 #appBody {

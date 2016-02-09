@@ -19,8 +19,50 @@ $(document).ready(function(){
 
 });
 
-var studyMe = angular.module('studyMe', [])
+var studyMe = angular.module('studyMe', ['ngRoute'])
+.config(function($routeProvider){
+  $routeProvider
+    .when('/', {
+      templateUrl : 'pages/study.html',
+      controller : 'studyController'
+    })
+    .when('/login', {
+      templateUrl : 'pages/login.html',
+      controller : 'loginController'
+    })
+    .when('/signup', {
+      templateUrl : 'pages/signup.html',
+      controller : 'signupController'
+    })
+    .when('/stats', {
+      templateUrl : 'pages/stats.html',
+      controller : 'statsController'
+    })
+
+    .when('/admin', {
+      templateUrl : 'pages/admin.html',
+      controller : 'adminController'
+    });
+})
+
+.controller('statsController', function($scope){
+  $scope.testMessage = " this is all of the stats ";
+})
+
+.controller('loginController', function($scope){
+  $scope.testMessage = " this is where you login ";
+})
+
+.controller('signupController', function($scope){
+  $scope.testMessage = " this is where you sign up ";
+})
+
+.controller('adminController', function($scope){
+  $scope.testMessage = " this is where you add cards ";
+})
+
 .controller('studyController', function($scope){
+  $scope.testMessage = " this is the main thinger ";
 
   $scope.curDeck = [];
 

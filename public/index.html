@@ -8,58 +8,31 @@
     <link rel="icon" href="favicon.png" type="image/x-icon" />
   </head>
   <body>
-    <h1 alert><i class="fa fa-graduation-cap"></i> study me</h1>
+    <h1 id="titleBar"><i class="fa fa-graduation-cap"></i> study me</h1>
 
     <nav>
       <ul>
-        <li><a href="#/login"><i class="fa fa-sign-in"></i> login</a>
-        </li>
-        <li><a href="#/stats"><i class="fa fa-bar-chart"></i> stats</a>
-        </li>
-        <li><a href="#/study"><i class="fa fa-list-alt"></i> study</a>
-        </li>
+        <li><a href="#/login"><i class="fa fa-sign-in"></i> login</a></li>
+        <li><a href="#/stats"><i class="fa fa-bar-chart"></i> stats</a></li>
+        <li><a href="#/"><i class="fa fa-list-alt"></i> study</a></li>
+        <li><a href="#/admin"><i class="fa fa-pencil"></i> admin</a></li>
+        <li><a href="#/signup"><i class="fa fa-user-plus"></i> sign up</a></li>
       </ul>
     </nav>
 
     <div id="appBody">
-      <label>Pick a thing! </label>
-      <select>
-        <option>JLPT N3</option>
-      </select>
-      <button ng-click="clickedIt()">Go to it!</button>
-      <button ng-click="shuffle(jlptN3)">Shuffle it!</button>
-
-      <div id="card">
-        <div id="question">
-          {{ curQuestion }}
-        </div>
-        <div id="answers">
-          <div id="partOne">
-            {{ answerOne}}
-          </div>
-          <div id="partTwo">
-            {{ answerTwo }}
-          </div>
-        </div>
-      </div>
-
-      <div id="nextButton" ng-click="nextCard()">
-        next
-      </div>
 
       <div ng-view>
 
       <div>
 
     </div>
-    
-    <!-- 
-    <script src="../node_modules/angular/angular.js"></script>
-    <script src="../node_modules/angular-route/angular-route.js"></script>
-    <script src="../node_modules/jquery/dist/jquery.js"></script>
-     -->
+
+    <script src="libs/Chart.js"></script>
     <script src="libs/angular.js"></script>
+    <script src="libs/angular-route.js"></script>
     <script src="libs/jquery.js"></script>
     <script src="js/studyMe.js"></script>
+
   </body>
 </html>
