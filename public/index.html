@@ -25,25 +25,23 @@
         <option>JLPT N3</option>
       </select>
       <button ng-click="clickedIt()">Go to it!</button>
+      <button ng-click="shuffle(jlptN3)">Shuffle it!</button>
 
       <div id="card">
         <div id="question">
-          question
-          {{ question }}
+          {{ curQuestion }}
         </div>
         <div id="answers">
           <div id="partOne">
-            answer one
             {{ answerOne}}
           </div>
           <div id="partTwo">
-            answer two
             {{ answerTwo }}
           </div>
         </div>
       </div>
 
-      <div id="nextButton">
+      <div id="nextButton" ng-click="nextCard()">
         next
       </div>
       <!-- 
