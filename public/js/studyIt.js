@@ -73,29 +73,57 @@ var studyMe = angular.module('studyMe', ['ngRoute','chart.js'])
   };
 })
 
-.controller('loginController', function($scope){
+.controller('loginController', function($scope, $location){
   $scope.testMessage = " get you logged in ";
+  $scope.userName = "";
+  $scope.passWord = "";
   $scope.clickLogin = function(){
-    console.log('clicked login');
+      console.log('clicked login');
+      console.log('loggin in : ', $scope.userName, $scope.passWord);
+      $location.path( "/" );
   };
 })
 
-.controller('signupController', function($scope){
+.controller('signupController', function($scope, $location){
   $scope.testMessage = " get you signed up ";
+  $scope.userName = "";
+  $scope.eMail = "";
+  $scope.passWordOne = "";
+  $scope.passWordTwo = "";
   $scope.clickSignup = function(){
     console.log('clicked signup');
+    console.log($scope.userName, $scope.eMail, $scope.passWordOne, $scope.passWordTwo);
+    $location.path("/");
   };
 })
 
 .controller('adminController', function($scope){
   $scope.testMessage = " add you some cards ";
+  $scope.deck = "";
+  $scope.question = "";
+  $scope.answer = "";
+  $scope.explain = "";
   $scope.clickAdd = function(){
     console.log('clicked add');
+    console.log('added : ', $scope.question, $scope.answer, $scope.explain, ' to ', $scope.deck)
   };
 })
 
 .controller('studyController', function($scope){
   $scope.testMessage = " select you a deck to get started ";
+
+  $scope.data = {
+    one: 'one',
+    two: 'two',
+    three: 'three'
+  };
+
+  $scope.getDivision = function($scope) {
+      $scope.divisions = data;
+      $scope.update = function (a) {
+          console.log(a);
+      }
+  }
 
   $scope.curDeck = [];
 

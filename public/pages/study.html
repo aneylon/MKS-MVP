@@ -5,9 +5,12 @@
   <br>
   <label>Pick a thing! </label>
   <select>
-    <option>JLPT N3</option>
-    <option>Sample Data</option>
+    <option value="jlptN3">JLPT N3</option>
+    <option value="sampleData">Sample Data</option>
   </select>
+
+  <select ng-model="key" ng-options="key as key for (key, val) in divisions" ng-change="update(key)"></select>
+
   <button ng-click="selectDeck()">Go to it!</button>
   <button ng-click="shuffle(sampleData)">Shuffle it!</button>
 

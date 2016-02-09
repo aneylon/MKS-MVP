@@ -4,16 +4,19 @@
   <p> {{ testMessage }} </p>
   <br>
   <form>
+    <select ng-model="deck">
+      <option value="one">One</option>
+    </select>
     <p>
-      <label>question : </label><input style="text">
+      <label>question : </label><input style="text" ng-model="question">
     </p>
     <br>
     <p>
-      <label>answer : </label><input style="text">
+      <label>answer : </label><input style="text" ng-model="answer">
     </p>
     <br>
     <p>
-      <label>explanition : </label><input style="text">
+      <label>explanition : </label><input style="text" ng-model="explain">
     </p>
     <br>
     <button ng-click="clickAdd()">add</button>
