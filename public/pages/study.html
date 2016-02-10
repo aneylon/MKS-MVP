@@ -4,15 +4,12 @@
   <p> {{ testMessage }} </p>
   <br>
   <label>Pick a thing! </label>
-  <select>
-    <option value="jlptN3">JLPT N3</option>
-    <option value="sampleData">Sample Data</option>
+
+  <select ng-model="selectedDeck">
+    <option ng-repeat="deck in decks" value="{{deck[1]}}">{{deck[0]}}</option>
   </select>
-
-  <select ng-model="key" ng-options="key as key for (key, val) in divisions" ng-change="update(key)"></select>
-
-  <button ng-click="selectDeck()">Go to it!</button>
-  <button ng-click="shuffle(sampleData)">Shuffle it!</button>
+  <button ng-click="selectDeck(selectedDeck)">Go to it!</button>
+  <!-- <button ng-click="shuffle(sampleData)">Shuffle it!</button> -->
 
   <div id="card">
     <div id="question">

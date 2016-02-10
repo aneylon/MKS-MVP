@@ -14,7 +14,12 @@ x front end
 - get infos from forms
 - logic for cards
 
+- form validations
+
 - angular animations
+  - ngfx
+
+- add new decks
 
 - db
   SQL / Mongo / Firebase ?

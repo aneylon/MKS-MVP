@@ -112,20 +112,15 @@ var studyMe = angular.module('studyMe', ['ngRoute','chart.js'])
 .controller('studyController', function($scope){
   $scope.testMessage = " select you a deck to get started ";
 
-  $scope.data = {
-    one: 'one',
-    two: 'two',
-    three: 'three'
-  };
+  $scope.selectedDeck = "";
 
-  $scope.getDivision = function($scope) {
-      $scope.divisions = data;
-      $scope.update = function (a) {
-          console.log(a);
-      }
-  }
+  $scope.decks = [
+    ["JLPT N3","jlptN3"],
+    ["Sample Data","sampleData"]
+  ];
 
   $scope.curDeck = [];
+  $scope.curCart = 0;
 
   $scope.curQuestion = "Pick a deck to get started";
   $scope.answerOne = "Answer Part One";
@@ -146,13 +141,15 @@ var studyMe = angular.module('studyMe', ['ngRoute','chart.js'])
     ["how much wood could a would chuck, chuck if a wood chuck could chuck wood?","shut up.","seriously."]
   ];
 
-  $scope.selectDeck = function(){
-    console.log('Clicked it');
+  $scope.selectDeck = function(selected){
+    // console.log('Clicked it');
+    $scope.curDeck = 0;
+    // console.log($scope[selected]);
+    $scope.curDeck = $scope[selected];
+    $scope.shuffle($scope.curDeck);
+    // console.log('selected deck is ', selected);
   };
 
-  $scope.loadSelected = function(){
-
-  };
 
   $scope.shuffle = function(arr){
     // seems to shuffle before log is made????
@@ -166,14 +163,46 @@ var studyMe = angular.module('studyMe', ['ngRoute','chart.js'])
     }
     console.log('end', arr);
 
-    $scope.curQuestion = arr[0][0];
+/*    $scope.curQuestion = arr[0][0];
     $scope.answerOne = arr[0][1];
-    $scope.answerTwo = arr[0][2];
+    $scope.answerTwo = arr[0][2];*/
+    $scope.showCard($scope.curCard);
   };
 
   $scope.nextCard = function(){
-    $scope.shuffle($scope.sampleData);
+    // $scope.shuffle($scope.sampleData);
+    if( $scope.curCard < $scope.CurDeck.length ) {
+      $scope.curCard += 1;
+    } else {
+      $scope.curCard = 0;
+      $scope.shuffle($scope.curDeck);
+    }
+    $scope.showCard($scope.curCard);
   };
+
+  $scope.showCard = function(cardToShow){
+    $scope.curQuestion = arr[cardToShow][0];
+    $scope.answerOne = arr[cardToShow][1];
+    $scope.answerTwo = arr[cardToShow][2];
+  }
+  // $scope.data = {
+  //   one: 'one',
+  //   two: 'two',
+  //   three: 'three'
+  // };
+
+  // $scope.getDivision = function($scope) {
+  //     $scope.divisions = data;
+  //     $scope.update = function (a) {
+  //         console.log(a);
+  //     }
+  // }
+
+/*  $scope.loadSelected = function(deckToLoad){
+    $scope.curDeck = deckToLoad;
+    console.log(deckToLoad);
+    console.log($scope.curDeck);
+  };*/
 });
 
 // .factory()
