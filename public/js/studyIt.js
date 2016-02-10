@@ -111,10 +111,9 @@ var studyMe = angular.module('studyMe', ['ngRoute','chart.js'])
   // $scope.answerTwo = "Answer Part Two";
 
   $scope.jlptN3 = [
-    ["one a", "one b", "one c"],
-    ["two a", "two b", "two c"],
-    ["three a", "three b", "three c"],
-    ["four a", "four b", "four c"]
+    ["山本さんはクラスの代表に選ばれた。","やまもと　さん　は　くらす　の　だいよう　に　えらばれた。","Mr. Yamamoto was chosen to represent the class"],
+    ["ぐっすり寝たので、気持ちがいい。","ぐっすり　ねた　ので、　きもち　が　いい。","I feel good becuase I slept really well."],
+    ["父が短気なのに対して、母の方は気が長い。","ちち　が　たんき　なのに　たいして、はは　の　ほう　はき　が　ながい。","Even though my father is short tempered compared to my mother is patient."]
   ];
 
   $scope.sampleData = [

@@ -5,7 +5,8 @@
 
 body {
   background-color: #333;
-  width : 75%;
+  /*width : 75%;*/
+  width : 800px;
   margin : auto;
 }
 
@@ -53,6 +54,12 @@ a {
 
 a:hover {
   color : #999;
+}
+
+#stats {
+  background-color : white;
+  padding : 5px;
+  margin : 5px;
 }
 
 #appBody {
