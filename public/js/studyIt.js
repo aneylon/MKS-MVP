@@ -96,15 +96,19 @@ var studyMe = angular.module('studyMe', ['ngRoute','chart.js'])
 
   $scope.decks = [
     ["JLPT N3","jlptN3"],
-    ["Sample Data","sampleData"]
+    ["Sample Data","sampleData"],
+    ["Security +", "securityPlus"]
   ];
 
   $scope.curDeck = [];
   $scope.curCart = 0;
 
-  $scope.curQuestion = "Pick a deck to get started";
-  $scope.answerOne = "Answer Part One";
-  $scope.answerTwo = "Answer Part Two";
+  $scope.curQuestion = "";
+  $scope.answerOne = "";
+  $scope.answerTwo = "";
+  // $scope.curQuestion = "Pick a deck to get started";
+  // $scope.answerOne = "Answer Part One";
+  // $scope.answerTwo = "Answer Part Two";
 
   $scope.jlptN3 = [
     ["one a", "one b", "one c"],
@@ -121,10 +125,18 @@ var studyMe = angular.module('studyMe', ['ngRoute','chart.js'])
     ["how much wood could a would chuck, chuck if a wood chuck could chuck wood?","shut up.","seriously."]
   ];
 
+  $scope.securityPlus = [
+    ["What kind of software is designed to gain administrative level access to a computer?","","Rootkit"],
+    ["Which kind of fire extinguishers should be used to put out magnesium or titanium based fires?","","Class D"],
+    ["How would you test the ability of a network that is isolated from the Internet by a perimeter network to detect and respond to a DoS attack?","","Penetration testing"]
+  ];
+
   $scope.selectDeck = function(selected){
     $scope.curCard = 0;
-    $scope.curDeck = $scope[selected];
-    $scope.shuffle($scope.curDeck);
+    if( $scope[selected] !== undefined ) {
+      $scope.curDeck = $scope[selected];
+      $scope.shuffle($scope.curDeck);
+    }
   };
 
 

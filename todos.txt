@@ -1,3 +1,7 @@
+- add new decks
+- remove console logs
+
+
 X basic node server
   x refactor to express
 
@@ -18,10 +22,6 @@ x front end
 
 - angular animations
   - ngfx
-
-- add new decks
-
-- remove console logs
 
 - db
   SQL / Mongo / Firebase ?
