@@ -21,6 +21,8 @@ x front end
 
 - add new decks
 
+- remove console logs
+
 - db
   SQL / Mongo / Firebase ?
 

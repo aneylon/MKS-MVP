@@ -1,8 +1,4 @@
-// console.log("loggin basic");
-
-// replace jquery with angular transitions???
 $(document).ready(function(){
-  // console.log('j-quezy fo sheezy');
 
   $("body").on('click', '#card', function(){
     $('#answers').slideToggle("fast");
@@ -10,20 +6,7 @@ $(document).ready(function(){
   $("body").on('click', '#nextButton', function(){
     $('#answers').slideUp('fast');
   })
-/*
-  $( "#question" ).click(function() {
-    $( "#answers" ).slideToggle( "fast", function() {
-      // Animation complete.
-    });
-  });
 
-  $("#nextButton").click(function(){
-    $("#answers").slideUp("fast", function(){
-      console.log("slide it up");
-      // move to next item in list
-    });
-  });
-*/
 });
 
 var studyMe = angular.module('studyMe', ['ngRoute','chart.js'])
@@ -60,10 +43,7 @@ var studyMe = angular.module('studyMe', ['ngRoute','chart.js'])
 
   $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
   $scope.series = ['Series A', 'Series B'];
-  // $scope.data = [
-  //   [65, 59, 80, 81, 56, 55, 40],
-  //   [28, 48, 40, 19, 86, 27, 90]
-  // ];
+
   $scope.data = [
     [$scope.randomScalingFactor(), $scope.randomScalingFactor(), $scope.randomScalingFactor(), $scope.randomScalingFactor(), $scope.randomScalingFactor(), $scope.randomScalingFactor(), $scope.randomScalingFactor()],
     [$scope.randomScalingFactor(), $scope.randomScalingFactor(), $scope.randomScalingFactor(), $scope.randomScalingFactor(), $scope.randomScalingFactor(), $scope.randomScalingFactor(), $scope.randomScalingFactor()]
@@ -142,13 +122,9 @@ var studyMe = angular.module('studyMe', ['ngRoute','chart.js'])
   ];
 
   $scope.selectDeck = function(selected){
-    // console.log('Clicked it');
     $scope.curCard = 0;
-    // console.log($scope[selected]);
     $scope.curDeck = $scope[selected];
-    // console.log()
     $scope.shuffle($scope.curDeck);
-    // console.log('selected deck is ', selected);
   };
 
 
@@ -166,14 +142,10 @@ var studyMe = angular.module('studyMe', ['ngRoute','chart.js'])
     }
     console.log('end', arr);
 
-/*    $scope.curQuestion = arr[0][0];
-    $scope.answerOne = arr[0][1];
-    $scope.answerTwo = arr[0][2];*/
     $scope.showCard($scope.curCard);
   };
 
   $scope.nextCard = function(){
-    // $scope.shuffle($scope.sampleData);
     console.log($scope.curDeck.length);
     if( $scope.curCard < ( $scope.curDeck.length - 1 ) ) {
       $scope.curCard += 1;
@@ -189,26 +161,6 @@ var studyMe = angular.module('studyMe', ['ngRoute','chart.js'])
     $scope.curQuestion = $scope.curDeck[cardToShow][0];
     $scope.answerOne = $scope.curDeck[cardToShow][1];
     $scope.answerTwo = $scope.curDeck[cardToShow][2];
-  }
-  // $scope.data = {
-  //   one: 'one',
-  //   two: 'two',
-  //   three: 'three'
-  // };
+  };
 
-  // $scope.getDivision = function($scope) {
-  //     $scope.divisions = data;
-  //     $scope.update = function (a) {
-  //         console.log(a);
-  //     }
-  // }
-
-/*  $scope.loadSelected = function(deckToLoad){
-    $scope.curDeck = deckToLoad;
-    console.log(deckToLoad);
-    console.log($scope.curDeck);
-  };*/
 });
-
-// .factory()
-// .service()
