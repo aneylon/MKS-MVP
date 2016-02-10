@@ -143,15 +143,18 @@ var studyMe = angular.module('studyMe', ['ngRoute','chart.js'])
 
   $scope.selectDeck = function(selected){
     // console.log('Clicked it');
-    $scope.curDeck = 0;
+    $scope.curCard = 0;
     // console.log($scope[selected]);
     $scope.curDeck = $scope[selected];
+    // console.log()
     $scope.shuffle($scope.curDeck);
     // console.log('selected deck is ', selected);
   };
 
 
   $scope.shuffle = function(arr){
+    console.log(arr);
+    console.log('starting shuffle');
     // seems to shuffle before log is made????
     console.log('start', arr);
     for ( var i = 0; i < arr.length; i++ ) {
@@ -171,7 +174,8 @@ var studyMe = angular.module('studyMe', ['ngRoute','chart.js'])
 
   $scope.nextCard = function(){
     // $scope.shuffle($scope.sampleData);
-    if( $scope.curCard < $scope.CurDeck.length ) {
+    console.log($scope.curDeck.length);
+    if( $scope.curCard < ( $scope.curDeck.length - 1 ) ) {
       $scope.curCard += 1;
     } else {
       $scope.curCard = 0;
@@ -181,9 +185,10 @@ var studyMe = angular.module('studyMe', ['ngRoute','chart.js'])
   };
 
   $scope.showCard = function(cardToShow){
-    $scope.curQuestion = arr[cardToShow][0];
-    $scope.answerOne = arr[cardToShow][1];
-    $scope.answerTwo = arr[cardToShow][2];
+    console.log('showing card', cardToShow);
+    $scope.curQuestion = $scope.curDeck[cardToShow][0];
+    $scope.answerOne = $scope.curDeck[cardToShow][1];
+    $scope.answerTwo = $scope.curDeck[cardToShow][2];
   }
   // $scope.data = {
   //   one: 'one',
