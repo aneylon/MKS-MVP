@@ -3,9 +3,6 @@ $(document).ready(function(){
   $("body").on('click', '#card', function(){
     $('#answers').slideToggle("fast");
   })
-  $("body").on('click', '#nextButton', function(){
-    $('#answers').slideUp('fast');
-  })
 
 });
 
@@ -49,7 +46,6 @@ var studyMe = angular.module('studyMe', ['ngRoute','chart.js'])
     [$scope.randomScalingFactor(), $scope.randomScalingFactor(), $scope.randomScalingFactor(), $scope.randomScalingFactor(), $scope.randomScalingFactor(), $scope.randomScalingFactor(), $scope.randomScalingFactor()]
   ];
   $scope.onClick = function (points, evt) {
-    console.log(points, evt);
   };
 })
 
@@ -58,8 +54,6 @@ var studyMe = angular.module('studyMe', ['ngRoute','chart.js'])
   $scope.userName = "";
   $scope.passWord = "";
   $scope.clickLogin = function(){
-      console.log('clicked login');
-      console.log('loggin in : ', $scope.userName, $scope.passWord);
       $location.path( "/" );
   };
 })
@@ -71,8 +65,6 @@ var studyMe = angular.module('studyMe', ['ngRoute','chart.js'])
   $scope.passWordOne = "";
   $scope.passWordTwo = "";
   $scope.clickSignup = function(){
-    console.log('clicked signup');
-    console.log($scope.userName, $scope.eMail, $scope.passWordOne, $scope.passWordTwo);
     $location.path("/");
   };
 })
@@ -84,8 +76,6 @@ var studyMe = angular.module('studyMe', ['ngRoute','chart.js'])
   $scope.answer = "";
   $scope.explain = "";
   $scope.clickAdd = function(){
-    console.log('clicked add');
-    console.log('added : ', $scope.question, $scope.answer, $scope.explain, ' to ', $scope.deck)
   };
 })
 
@@ -131,44 +121,41 @@ var studyMe = angular.module('studyMe', ['ngRoute','chart.js'])
   ];
 
   $scope.selectDeck = function(selected){
-    $scope.curCard = 0;
-    if( $scope[selected] !== undefined ) {
-      $scope.curDeck = $scope[selected];
-      $scope.shuffle($scope.curDeck);
-    }
+    $('#answers').slideUp('fast', function(){
+      $scope.curCard = 0;
+      if( $scope[selected] !== undefined ) {
+        $scope.curDeck = $scope[selected];
+        $scope.shuffle($scope.curDeck);
+      }
+    });
   };
 
 
   $scope.shuffle = function(arr){
-    console.log(arr);
-    console.log('starting shuffle');
     // seems to shuffle before log is made????
-    console.log('start', arr);
     for ( var i = 0; i < arr.length; i++ ) {
       var temp = arr[i];
       var rand = Math.floor(Math.random() * arr.length);
-      console.log(rand);
       arr[i] = arr[rand];
       arr[rand] = temp;
     }
-    console.log('end', arr);
 
     $scope.showCard($scope.curCard);
   };
 
   $scope.nextCard = function(){
-    console.log($scope.curDeck.length);
-    if( $scope.curCard < ( $scope.curDeck.length - 1 ) ) {
-      $scope.curCard += 1;
-    } else {
-      $scope.curCard = 0;
-      $scope.shuffle($scope.curDeck);
-    }
-    $scope.showCard($scope.curCard);
+    $('#answers').slideUp('fast', function(){
+      if( $scope.curCard < ( $scope.curDeck.length - 1 ) ) {
+        $scope.curCard += 1;
+      } else {
+        $scope.curCard = 0;
+        $scope.shuffle($scope.curDeck);
+      }
+      $scope.showCard($scope.curCard);
+    });
   };
 
   $scope.showCard = function(cardToShow){
-    console.log('showing card', cardToShow);
     $scope.curQuestion = $scope.curDeck[cardToShow][0];
     $scope.answerOne = $scope.curDeck[cardToShow][1];
     $scope.answerTwo = $scope.curDeck[cardToShow][2];

@@ -1,6 +1,24 @@
-- add new decks
-- remove console logs
+~ redirect after login / signup
+~ get infos from forms
 
+- form validations
+
+- angular animations
+  - ngfx
+
+- db
+  SQL / Mongo / Firebase ?
+
+Extra Credit:
+- charts!
+- grunt
+- email daily 'card'
+
+
+x remove console logs
+
+x add new decks
+x close / slide up card when switching decks
 
 X basic node server
   x refactor to express
@@ -14,21 +32,6 @@ x front end
   x neither --ejs / jade-- 
   x hand coded --bootstrap / foundation--
 
-- redirect after login / signup
-- get infos from forms
-- logic for cards
-
-- form validations
-
-- angular animations
-  - ngfx
-
-- db
-  SQL / Mongo / Firebase ?
+x logic for cards
 
 x block out interface
-
-Extra Credit:
-- charts!
-- grunt
-- email daily 'card'
