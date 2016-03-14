@@ -6,7 +6,12 @@ $(document).ready(function(){
 
 });
 
-var studyMe = angular.module('studyMe', ['ngRoute','chart.js'])
+var studyMe = angular.module('studyMe', ['ngRoute','chart.js','firebase'])
+
+.constant("myFirebase",{
+  "url": "https://studyit.firebaseio.com/"
+})
+
 .config(function($routeProvider){
   $routeProvider
     .when('/', {
@@ -69,13 +74,22 @@ var studyMe = angular.module('studyMe', ['ngRoute','chart.js'])
   };
 })
 
-.controller('adminController', function($scope){
+.controller('adminController', function($scope,$firebaseArray,myFirebase){
+  var ref = new Firebase("https://studyit.firebaseio.com/");
+
+  console.log($scope.data);
   $scope.testMessage = " add you some cards ";
-  $scope.deck = "";
   $scope.question = "";
   $scope.answer = "";
   $scope.explain = "";
   $scope.clickAdd = function(){
+    var newRef = new Firebase(myFirebase.url + $scope.deck);
+    $scope.data = $firebaseArray(newRef);
+    $scope.data.$add({
+      question : $scope.question,
+      answer : $scope.answer,
+      explain : $scope.explain
+    });
   };
 })
 
@@ -96,9 +110,6 @@ var studyMe = angular.module('studyMe', ['ngRoute','chart.js'])
   $scope.curQuestion = "";
   $scope.answerOne = "";
   $scope.answerTwo = "";
-  // $scope.curQuestion = "Pick a deck to get started";
-  // $scope.answerOne = "Answer Part One";
-  // $scope.answerTwo = "Answer Part Two";
 
   $scope.jlptN3 = [
     ["山本さんはクラスの代表に選ばれた。","やまもと　さん　は　くらす　の　だいよう　に　えらばれた。","Mr. Yamamoto was chosen to represent the class"],
