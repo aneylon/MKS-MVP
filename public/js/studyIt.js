@@ -75,9 +75,6 @@ var studyMe = angular.module('studyMe', ['ngRoute','chart.js','firebase'])
 })
 
 .controller('adminController', function($scope,$firebaseArray,myFirebase){
-  var ref = new Firebase("https://studyit.firebaseio.com/");
-
-  console.log($scope.data);
   $scope.testMessage = " add you some cards ";
   $scope.question = "";
   $scope.answer = "";
@@ -93,10 +90,20 @@ var studyMe = angular.module('studyMe', ['ngRoute','chart.js','firebase'])
   };
 })
 
-.controller('studyController', function($scope){
+.controller('studyController', function($scope,$firebaseArray,myFirebase){
+  var ref = new Firebase(myFirebase.url);
   $scope.testMessage = " select you a deck to get started ";
 
   $scope.selectedDeck = "";
+
+  $scope.datas = $firebaseArray(ref);
+  $scope.datas.$loaded()
+    .then(function(){
+      console.log("data is ", $scope.data);
+    })
+    .catch(function(err){
+      console.log(err);
+    })
 
   $scope.decks = [
     ["JLPT N3","jlptN3"],
