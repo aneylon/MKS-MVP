@@ -5,7 +5,7 @@
   <br>
   <form>
     <select ng-model="deck">
-      <option value="one">One</option>
+      <option ng-repeat="data in datas" value="{{data.$id}}">{{data.$id}}</option>
     </select>
     <p>
       <label>question : </label><input style="text" ng-model="question">
