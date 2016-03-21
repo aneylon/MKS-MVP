@@ -54,16 +54,27 @@ var studyMe = angular.module('studyMe', ['ngRoute','chart.js','firebase'])
   };
 })
 
-.controller('loginController', function($scope, $location){
+.controller('loginController', function($scope, $location, myFirebase){
   $scope.testMessage = " get you logged in ";
   $scope.userName = "";
   $scope.passWord = "";
   $scope.clickLogin = function(){
       $location.path( "/" );
+        var ref = new Firebase(myFirebase.url);
+        ref.authWithPassword({
+          email    : "bobtony@firebase.com",
+          password : "correcthorsebatterystaple"
+        }, function(error, authData) {
+          if (error) {
+            console.log("Login Failed!", error);
+          } else {
+            console.log("Authenticated successfully with payload:", authData);
+          }
+        },{remember: "sessionOnly"});
   };
 })
 
-.controller('signupController', function($scope, $location){
+.controller('signupController', function($scope, $location, myFirebase){
   $scope.testMessage = " get you signed up ";
   $scope.userName = "";
   $scope.eMail = "";
@@ -71,6 +82,17 @@ var studyMe = angular.module('studyMe', ['ngRoute','chart.js','firebase'])
   $scope.passWordTwo = "";
   $scope.clickSignup = function(){
     $location.path("/");
+      var ref = new Firebase(myFirebase.url);
+      ref.createUser({
+        email    : "bobtony@firebase.com",
+        password : "correcthorsebatterystaple"
+      }, function(error, userData) {
+        if (error) {
+          console.log("Error creating user:", error);
+        } else {
+          console.log("Successfully created user account with uid:", userData.uid);
+        }
+      });
   };
 })
 
@@ -92,6 +114,12 @@ var studyMe = angular.module('studyMe', ['ngRoute','chart.js','firebase'])
 
 .controller('studyController', function($scope,$firebaseArray,myFirebase){
   var ref = new Firebase(myFirebase.url);
+
+  $scope.logOut = function(){
+    console.log("Log it out");
+    ref.unauth();
+  };
+
   $scope.testMessage = " select you a deck to get started ";
 
   $scope.selectedDeck = "";
@@ -180,3 +208,64 @@ var studyMe = angular.module('studyMe', ['ngRoute','chart.js','firebase'])
   };
 
 });
+
+/*
+// rules
+{
+  "rules": {
+    "users": {
+      "$uid": {
+        // grants write access to the owner of this user account whose uid must exactly match the key ($uid)
+        ".write": "auth !== null && auth.uid === $uid",
+
+        // grants read access to any user who is logged in with an email and password
+        ".read": "auth !== null && auth.provider === 'password'"
+      }
+    }
+  }
+}
+*/
+
+/*
+// change email
+var ref = new Firebase("https://<YOUR-FIREBASE-APP>.firebaseio.com");
+ref.changeEmail({
+  oldEmail : "bobtony@firebase.com",
+  newEmail : "bobtony@google.com",
+  password : "correcthorsebatterystaple"
+}, function(error) {
+  if (error === null) {
+    console.log("Email changed successfully");
+  } else {
+    console.log("Error changing email:", error);
+  }
+});
+*/
+/*
+// change password
+var ref = new Firebase("https://<YOUR-FIREBASE-APP>.firebaseio.com");
+ref.changePassword({
+  email       : "bobtony@firebase.com",
+  oldPassword : "correcthorsebatterystaple",
+  newPassword : "neatsupersecurenewpassword"
+}, function(error) {
+  if (error === null) {
+    console.log("Password changed successfully");
+  } else {
+    console.log("Error changing password:", error);
+  }
+});
+*/
+/*
+// password reset email
+var ref = new Firebase("https://<YOUR-FIREBASE-APP>.firebaseio.com");
+ref.resetPassword({
+  email : "bobtony@firebase.com"
+}, function(error) {
+  if (error === null) {
+    console.log("Password reset email sent successfully");
+  } else {
+    console.log("Error sending password reset email:", error);
+  }
+});
+*/
